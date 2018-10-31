@@ -21,6 +21,7 @@
 \RequirePackage[scale=2]{ccicons}
 \RequirePackage{pgfplots}
 \RequirePackage{babel}
+\RequirePackage{pgfpages}
 \usepgfplotslibrary{dateplot}
 %\RequirePackage{url,hyperref}
 
@@ -41,6 +42,9 @@
 \RequirePackage{geometry}
 % Define page size
 \geometry{paperwidth=16cm,paperheight=9cm}
+
+% allow notes to be present
+\setbeameroption{show notes on second screen=right}
 
 % Add new command to change size of a hrulefill
 \makeatletter
