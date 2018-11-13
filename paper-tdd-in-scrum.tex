@@ -1,0 +1,52 @@
+% arara: pdflatex: { shell: true, draft: true }
+% arara: makeglossaries
+% arara: biber
+% arara: pdflatex: { shell: true, synctex: true }
+% arara: pdflatex: { shell: true, synctex: true }
+
+\documentclass[12pt,DIV14,BCOR10mm,a4paper,twoside,parskip=half-,headsepline,headinclude,english,ngerman,bibliography=totocnumbered]{scrreprt}
+
+\usepackage{hshhelper_base}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}    % hier gehts los
+  \thispagestyle{empty} % Titelseite
+\includegraphics[width=0.2\textwidth]{Wortmarke_WI_schwarz}
+
+   {  ~ \sffamily
+  \vfill
+  {\Huge\bfseries Test-Driven-Development in Scrum}
+  \bigskip
+
+  {\Large
+  Dennis Grabowski \\[2ex]
+  Projekt- \& Qualitätsmanagement \\
+  Wintersemester 18/19
+ \\[5ex]
+   \today }
+}
+ \vfill
+
+  ~ \hfill
+  \includegraphics[height=0.3\paperheight]{H_WI_Pantone1665}
+
+\vspace*{-3cm}
+
+\tableofcontents  % Inhaltsverzeichnis
+
+\printbibliography
+
+% Can be used to add a list of acronyms with their description
+%\glsaddall
+%\deftranslation{to=German}{Acronyms}{Abkürzungsverzeichnis}
+%\deftranslation{to=German}{Glossary}{Glossar}
+\printacronyms[title=Abkürzungsverzeichnis,toctitle=Abkürzungsverzeichnis]
+\printglossary[type=main]
+
+%\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures      % Abbildungsverzeichnis
+
+%s\addcontentsline{toc}{chapter}{\listtablename}
+% \listoftables       % Tabellenverzeichnis
+
+\end{document}
