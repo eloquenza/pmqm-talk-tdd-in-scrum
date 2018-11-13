@@ -34,6 +34,82 @@
 
 \tableofcontents  % Inhaltsverzeichnis
 
+\chapter{Einleitung}
+\chapter{Test-Driven-Development}
+\chapter{Scrum}
+\section{Größten Vorteile von Scrum}
+
+Agilitaet bedeutet schnell auf Anforderungsaenderung reagieren zu koennen, aber auch schnell Feedback zu diesen Anforderungen geben zu koennen.
+Feedback in welcher Form?
+Sprint Planning kann genutzt werden zum Adressieren der neuen Anforderungen.
+
+People over Tools.
+Team wird hervorgehoben bei Scrum.
+Nicht einzelne Experten, sondern das gesamte Team steht fuer Qualitaet.
+Regel ist, dass jedes Teammitglied zu allem beitragen kann.
+Jedes Teammitglied ist in der Lage, sich eine Aufgabe zu schnappen.
+Das bedeutet, dass jedes Teammitglied aber auch fuer jedes Stueck Code zustaendig sein kann.
+Das erzwingt, dass das ganze Team an einem Strang zieht, oftmals "Whole-Team"-Approach genannt.
+Dieser Ansatz ist vorallem wichtig im Bezug auf TDD.
+Waehrend TDD kann nur eine angemessene Testbasis geschaffen werden, wenn jeder Entwickler sich verantwortlich fuehlt, neue Tests zu schreiben, aber auch alte Tests zu pflegen.
+Neue Anforderungen bedeuten, dass neue Tests geschrieben werden muessen, aber auch, dass eventuell alte Tests angepasst werden muessen.
+Zerfaellt die Qualitaet der Testsuite, so zerfaellt fuer einer der besten und schnellsten Moeglichkeiten, Feedback bezueglich der Qualitaet zu gewinnen.
+
+
+\chapter{Einbindung von TDD in Scrum}
+
+Was bringen Tests?
+Instant Feedback bezueglich des Codes, helfen also bei Agilitaet!
+Funktioniert der Code, den ich geschrieben habe?
+Kann ich den Use Case des Kundens modellieren?
+Kann ich nicht-funktionale Anforderungen abdecken?
+
+Tests schwer in schnellen Iterations-Zyklus einzubinden, vor allem, weil keine seperate Testphase gegeben ist, zumindest nicht im tradionellen Scrum-Model.
+TDD bedeutet auch, dass Entwickler Tests schreiben; Tests, die automatisiert auszufuehren sind.
+Koennen also auch schnell genutzt werden, bei Aenderungen neuer Anforderungen Regressionen zu finden.
+Test-Code-Test Cycle darf nicht zu lang sein.
+
+Testing selbst evtl schwer, oftmals keine festen Spezifikationen.
+Wie loest man das Problem?
+Tests und Code ist einfacher zu schreiben, wenn festere Spezifikationen gegeben sind.
+Problem entsteht aus schlechten User Stories, sollte bei guten User Stories also nicht entstehen.
+TDD mitigiert allerdings schlechte User Stories, da Entwickler gezwungen ist, sich Gedanken ueber den Code und das Design zu machen, bevor Code in Applikation gelangt.
+TDD kann also auch helfen, "Done"-Definitions zu finden.
+
+\section{Teamorganisation}
+
+In der Informatik betrachten wir oftmals nur die Entwicklerseite, allerdings nicht zu vergessen die anderen Stakeholder.
+Wer kann was testen?
+Was ist mit einer spezifischen Testerroller oder QA?
+Sollte ein Programmierer alles alleine testen?
+Wie koennen User Stories geloest werden, wo Tester und Programmierer eventuell nicht mit Anforderungen klar kommen?
+Kunde involvieren! -> Power of Three.
+
+\section{Projektmanagersicht}
+\subsection{Zeitmanagement}
+
+Was bedeutet TDD fuer die Estimates?
+Lohnt sich Tests schreiben ueberhaupt?
+Bedeuten Tests nicht, dass mehr Aufwand gebracht werden muss, "nutzlosen" Code zu produzieren?
+Das ist doch eine Reduktion des Throughputs.
+Iterationen sind doch eh schon kurz genug.
+Wann soll ueberhaupt getestet werden?
+Meist Sprints so kurz definiert, dass Entwickler mit Stories fertig werden.
+Wenn die Story fertig ist, sollte also Sprint beendet werden.
+
+Stories sollten erst fertig sein, wenn sie vernuenftig getestet sind.
+Stories sollten IN dem Sprint getestet werden, in der sie ins Sprint Backlog getan wurden.
+Testing in agilen Entwicklungsprozessen sollte nicht designed werden nach dem Konzept, dass Testing auf den letzten Sprint arbeitet.
+Immer momentanen Sprint testen, daher auch dafuer Zeit nehmen!
+
+\subsection{Technical Debt}
+
+Hilft TDD evtl technical debt zu mitigieren?
+
+\subsection{Metriken zum Managen}
+
+\section{Entwicklersicht}
+
 \printbibliography
 
 % Can be used to add a list of acronyms with their description
