@@ -36,13 +36,25 @@
 
 \chapter{Einleitung}
 \chapter{Test-Driven-Development}
+
+\begin{figure}[!htb]
+  \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{./images/1920px-TDD_Global_Lifecycle.png}
+\autocite{TDD.Picture}
+\end{figure}
+
 \chapter{Scrum}
+
+\begin{figure}[!htb]
+  \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{./images/the-daily-scrum-in-the-sprint-cycle}
+  \autocite{ManifestoDigital}
+\end{figure}
 
 \section{Größten Vorteile von Scrum}
 
 Agilitaet bedeutet schnell auf Anforderungsaenderung reagieren zu koennen, aber auch schnell Feedback zu diesen Anforderungen geben zu koennen.
 Feedback in welcher Form?
 Sprint Planning kann genutzt werden zum Adressieren der neuen Anforderungen.
+Iterative Natur
 
 People over Tools.
 Team wird hervorgehoben bei Scrum.
@@ -54,11 +66,34 @@ Das erzwingt, dass das ganze Team an einem Strang zieht, oftmals "Whole-Team"-Ap
 Dieser Ansatz ist vorallem wichtig im Bezug auf TDD.
 Waehrend TDD kann nur eine angemessene Testbasis geschaffen werden, wenn jeder Entwickler sich verantwortlich fuehlt, neue Tests zu schreiben, aber auch alte Tests zu pflegen.
 Neue Anforderungen bedeuten, dass neue Tests geschrieben werden muessen, aber auch, dass eventuell alte Tests angepasst werden muessen.
+Kostensparender Entwicklungsprozess
 Zerfaellt die Qualitaet der Testsuite, so zerfaellt fuer einer der besten und schnellsten Moeglichkeiten, Feedback bezueglich der Qualitaet zu gewinnen.
+  Projekte mit vielen \enquote{moving targets} sind durch Scrum lösbar.
+  Iterative Natur bietet Möglichkeit, Software schnell und strukturiert zu entwickeln, um ein Minimum Viable Project zu liefern.
+  Kurzen Sprints erlauben, dass Software nicht für Ewigkeiten entwickelt wird, und dann ein falsches Projekt herauskommt.
+  Probleme werden schnell identifiziert.
+  Planung von Sprint zu Sprint, Team organisiert sich selbst, daher wenig Overhead.
+  Nur Features implementiert, die der Kunde explizit fordert
+
+\section{Nachteile}
+
+\begin{itemize}
+  \item Nur ein Framework
+  \item Kein festes Projektabschlussdatum führt oft zu \enquote{Feature Creep}
+  \item Keine festen Softwareentwicklungsphasen innerhalb eines Sprints
+  \item Projekterfolg hängt von Kooperation des Teams ab
+  \item Erfordert viel Disziplin
+  \item Qualität schwer zu gewährleisten:
+  \begin{itemize}
+    \item Team muss entweder qualifiziert sein oder
+    \item Team muss agressiven Testprozess durchführen
+  \end{itemize}
+\end{itemize}
+
 
 \chapter{Einbindung von TDD in Scrum}
 
-Zentrale Fragen:
+Barry Boehm (Erfinder des Spiralenmodells) hat Unterschied schön hervorgehoben:
 Are we building the product right?
 Are we building the right product?
 
@@ -91,6 +126,19 @@ Sollte ein Programmierer alles alleine testen?
 Wie koennen User Stories geloest werden, wo Tester und Programmierer eventuell nicht mit Anforderungen klar kommen?
 Kunde involvieren! -> Power of Three.
 
+\section{Developer-TDD + ATDD}
+
+\begin{itemize}
+    \item Während Sprint Planning: Benutzeranforderungen als Acceptance Tests schreiben,
+    \item Während User Stories: Acceptance Test aufgeteilt in kleinere Unit Tests,
+    \item Eigentlicher Programmierprozess beginnt, bis Unit Tests / Acceptance Tests bestehen
+\end{itemize}
+
+\begin{figure}[!htb]
+    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{./images/atdd.jpg}
+    \autocite{astels_2003}
+\end{figure}
+
 \section{Projektmanagersicht}
 \subsection{Zeitmanagement}
 
@@ -112,7 +160,54 @@ Immer momentanen Sprint testen, daher auch dafuer Zeit nehmen!
 
 Hilft TDD evtl technical debt zu mitigieren?
 
-\subsection{Metriken zum Managen}
+\subsection{Statistiken}
+
+\subsubsection{Wie verifizieren agile Teame ihre Arbeit?}
+    \begin{tabularx}{\linewidth}{
+      |>{\hsize=0.7\hsize} X |
+      >{\hsize=0.2\hsize} X |
+      >{\hsize=0.1\hsize} X |
+      >{\hsize=0.1\hsize} X |
+    }
+    \hline
+    \textbf{Methodik} & \textbf{2008} & \textbf{2010} & \textbf{2013}\\ \hline
+    Iteration demos & - & \textbf{79\%} & 58\% \\ \hline
+    Developer regression testing & 60\% & \textbf{71\%} & 49\% \\ \hline
+    Developer TDD & \textbf{71\%} & 53\% & 38\% \\ \hline
+    Acceptance TDD & 40\% & \textbf{44\%} & 18\% \\ \hline
+    All-hands demos & \textbf{56\%} & 42\% & 30\% \\ \hline
+    End-of-lifecycle testing & 45\% & 41\% & \textbf{50\%} \\ \hline
+    Non-solo development & - & \textbf{39\%} & 34\% \\ \hline
+    Static-code analysis & - & 32\% & \textbf{39\%} \\ \hline
+    Parallel independent testing & \textbf{36\%} & 26\% & 22\% \\ \hline
+    External reviews & \textbf{52\%} & 23\% & 32\% \\ \hline
+    Dynamic code analysis & \textbf{23\%} & 21\% & 22\% \\ \hline
+    \end{tabularx}
+
+\subsubsection{Welche agile Testmethode waren die schwersten zu erlernen?}
+  \begin{tabularx}{\linewidth}{
+    |>{\hsize=0.7\hsize} X |
+    >{\hsize=0.2\hsize} X |
+    >{\hsize=0.1\hsize} X |
+    >{\hsize=0.1\hsize} X |
+  }
+  \hline
+  \textbf{Methodik} & \textbf{2009} & \textbf{2012}\\ \hline
+  Developer TDD & 37\% & 37\% \\ \hline
+  Acceptance TDD & 30\% & 39\% \\ \hline
+  \end{tabularx}
+
+Nur 2012:
+  \begin{itemize}
+    \item Getting all testing done in current sprint: 50\%
+    \item Validating non-functional requirements: 33\%
+    \item Getting stakeholders/customers involved in testing: 33\%
+    \item Getting developers to test their own code: 27\%
+    \item Initial Estimate and Schedule: 26\%
+    \item Adopting new agile testing tools: 16\%
+    \item Learning to test throughout the agile lifecycle: 16\%
+  \end{itemize}
+  \nocite{Ambysoft.Surveys}
 
 \section{Entwicklersicht}
 
