@@ -64,6 +64,9 @@
 
 \RequirePackage[headsepline,automark]{scrlayer-scrpage}
 
+\RequirePackage{caption}
+\captionsetup[table]{position=below}
+
 % Seitenköpfe automatisch
 \KOMAoptions{headinclude}
 
@@ -131,5 +134,7 @@
 
 \renewcommand\appendixpagename{Appendix}
 \renewcommand\appendixtocname{Appendix}
+
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-1.4cm}}
 
 \endinput
