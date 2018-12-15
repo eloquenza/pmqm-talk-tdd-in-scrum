@@ -41,7 +41,7 @@ Die drei bekanntesten sind allerdings \enquote{Scrum}, \enquote{Kanban} und \enq
 Laut einem \enquote{Google Trend}-Vergleich scheint sich Scrum allerdings gegenüber seinen \enquote{Konkurrenten} gut gehalten zu haben. \footnote{Siehe \url{https://trends.google.com/trends/explore?date=all\&geo=US\&q=\%2Fm\%2F02zhbn,\%2Fm\%2F0ck\_p8,\%2Fm\%2F02t2n,\%2Fm\%2F0dgq419}}
 
 Alle drei Prozesse basieren auf dem sogenannten \enquote{Agile Manifesto} \autocite{AgileManifesto}. \\
-Das Manifesto macht keine genauen Angaben dazu, wie ein agiler Softwareentwicklungsprozess struktuiert werden sollte.
+Das Manifesto macht keine genauen Angaben dazu, wie ein agiler Softwareentwicklungsprozess strukturiert werden sollte.
 Daher ähneln sich diese drei Prozesse auch nur in den Werten, die sie von dem Agile Manifesto vermittelt bekommen haben.
 Oftmals konzentrieren sich diese Prozesse daher auf eine lockere, freie Anforderungsanalyse, um die sogenannte \enquote{Agilität} bieten zu können, oder geben vor, wie die Implementierungsphase aufgebaut ist, da kleinere, aber dafür funktionierende Softwareartefakte (Minimum Viable Product) bevorzugt werden.
 Die Testphase wird vom Agile Manifesto nicht aufgegriffen, und fällt daher oftmals in Vergessenheit.  \\
@@ -88,7 +88,7 @@ Das hat auch einen triftigen Grund: In Scrum steht ein autonomes Team im Vorderg
 Somit zielt Scrum auch gar nicht darauf ab, Vorgaben vorzunehmen.
 Dies würde das autonome Team nur einschränken.
 
-Scrum unterteilt die Entwicklung in mehrere aufeinanderfolgende, iterative Zyklen des selben Aufbaus, genannt \enquote{Sprint}.
+Scrum unterteilt die Entwicklung in mehrere aufeinander folgende, iterative Zyklen des selben Aufbaus, genannt \enquote{Sprint}.
 Ein Sprint ist aufgeteilt in 6 Subphasen, wie in \ref{figure:scrum-overview} zu sehen ist.
 Relevant in Rahmen dieser Ausarbeitung ist allerdings nur, dass nicht vorgegeben ist, wie die alltägliche Arbeit zu verrichten ist.
 Es gibt keine Aufteilung in Phasen.
@@ -166,56 +166,27 @@ Es besteht also ein großes Problem, eine Methodik zu wählen und diese vernünf
 
 \chapter{Einbindung von TDD in Scrum}
 
-Einer der größten, wenn nicht der größte, Vorteil von Scrum ist es, schnell auf Anforderungsänderungen reagieren zu können.
+Eins der größten Probleme in der generellen Softwareentwicklung sind die Softwareverifikation sowie Softwarevalidierung.
+Der Unterschied zwischen diesen beiden Prozessen hat Barry Boehm, der Erfinder des Spiralenmodells, einst treffend formuliert:
 
+\blockquote{
+\textbf{Verifikation:} Are we building the product right? \\
+\textbf{Validierung:} Are we building the right product?
+}
 
+Die Validierung übernimmt für uns Scrum - dadurch, dass der Product Owner zusammen mit anderen Stakeholdern vorgibt, welche Funktionalität er sich im nächsten Release wünscht, wird das richtige Produkt für den Kunden gebaut.
+Aber wie kann innerhalb von Scrum verifiziert werden, ob wir das Produkt auch fachlich korrekt erstellen?
+Der einzige, eingebaute Prozess dafür ist das Ausliefern des Softwareartefaktes des letzten Sprints zum Kunden, damit dieser Feedback dazu geben kann, ob seine Anforderungen erfüllt wurden.
+Es besteht aber auch die Möglichkeit, bereits früher Feedback auf diese Anforderungen zu bekommen, in dem Tests geschrieben werden.
+Noch besser: Verschmelzung von Acceptance TDD und Developer TDD, bei welcher der Kunde und das Scrum-Team gemeinsam zu einer Möglichkeit kommen, dass Softwareartefakt verifizieren zu können, bevor der Kunde das fertige Artefakt abschließend ausgeliefert bekommt.
 
-Agilitaet bedeutet schnell auf Anforderungsaenderung reagieren zu koennen, aber auch schnell Feedback zu diesen Anforderungen geben zu koennen.
-Feedback in welcher Form?
-Sprint Planning kann genutzt werden zum Adressieren der neuen Anforderungen.
-Iterative Natur
+\section{Acceptance TDD + Developer-TDD}
 
-Team wird hervorgehoben bei Scrum.
-Nicht einzelne Experten, sondern das gesamte Team steht fuer Qualitaet.
-Regel ist, dass jedes Teammitglied zu allem beitragen kann.
-Jedes Teammitglied ist in der Lage, sich eine Aufgabe zu schnappen.
-Das bedeutet, dass jedes Teammitglied aber auch fuer jedes Stueck Code zustaendig sein kann.
-Das erzwingt, dass das ganze Team an einem Strang zieht, oftmals "Whole-Team"-Approach genannt.
-Dieser Ansatz ist vorallem wichtig im Bezug auf TDD, wie schon in \ref{chapter:tdd} aufgezeigt, da nur eine angemessene Testsuite entstehen kann, wenn jeder Entwickler mitarbeitet.
-Neue Anforderungen bedeuten, dass neue Tests geschrieben werden muessen, aber auch, dass eventuell alte Tests angepasst werden muessen.
-Zerfaellt die Qualitaet der Testsuite, so zerfaellt fuer einer der besten und schnellsten Moeglichkeiten, Feedback bezueglich der Qualitaet zu gewinnen.
-
-Barry Boehm (Erfinder des Spiralenmodells) hat Unterschied schön hervorgehoben:
-Are we building the product right?
-Are we building the right product?
-
-Beides wird durch TDD unterstuetzt beantwortet.
-
-Was bringen Tests?
-Instant Feedback bezueglich des Codes, helfen also bei Agilitaet!
-Funktioniert der Code, den ich geschrieben habe?
-Kann ich den Use Case des Kundens modellieren?
-Kann ich nicht-funktionale Anforderungen abdecken?
-
-Tests schwer in schnellen Iterations-Zyklus einzubinden, vor allem, weil keine seperate Testphase gegeben ist, zumindest nicht im tradionellen Scrum-Model.
-TDD bedeutet auch, dass Entwickler Tests schreiben; Tests, die automatisiert auszufuehren sind.
-Koennen also auch schnell genutzt werden, bei Aenderungen neuer Anforderungen Regressionen zu finden.
-Test-Code-Test Cycle darf nicht zu lang sein.
-
-Testing selbst evtl schwer, oftmals keine festen Spezifikationen.
-Wie loest man das Problem?
-Tests und Code ist einfacher zu schreiben, wenn festere Spezifikationen gegeben sind.
-Problem entsteht aus schlechten User Stories, sollte bei guten User Stories also nicht entstehen.
-TDD mitigiert allerdings schlechte User Stories, da Entwickler gezwungen ist, sich Gedanken ueber den Code und das Design zu machen, bevor Code in Applikation gelangt.
-TDD kann also auch helfen, "Done"-Definitions zu finden.
-
-\section{Developer-TDD + ATDD}
-
-\begin{itemize}
-    \item Während Sprint Planning: Benutzeranforderungen als Acceptance Tests schreiben,
-    \item Während User Stories: Acceptance Test aufgeteilt in kleinere Unit Tests,
-    \item Eigentlicher Programmierprozess beginnt, bis Unit Tests / Acceptance Tests bestehen
-\end{itemize}
+Hierbei arbeitet der Kunde zusammen mit dem Scrum-Team, um im Rahmen des Acceptance TDD Akzeptanztests zu schreiben, die die gewünschten Use Cases modellieren.
+Der Kunde kann hier nochmal unklare Anforderungen spezifizieren, wird durch Nachfragen vom Team auf gegebenenfalls bestehende Probleme bei den Anforderungen hingewiesen und erhält Transparenz in den Arbeitsprozess des Teams.
+Die hier entstandenen Akzeptanztests werden dann in den jeweiligen Arbeitspaketen mithilfe verschiedener Unit-Tests durch die Entwickler implementiert.
+Die Entwickler haben hier dann bereits eine Vorstellung, wie das Arbeitspaket fachlich korrekt zu implementieren ist, wodurch es ihnen einfacher fällt, die Aufgabe zu lösen.
+Eine Übersicht kann der Grafik \ref{figure:atdd-dtdd} entnommen werden.
 
 \begin{figure}[!htb]
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{./images/atdd.jpg}
@@ -223,35 +194,52 @@ TDD kann also auch helfen, "Done"-Definitions zu finden.
     \label{figure:atdd-dtdd}
 \end{figure}
 
-\section{Projektmanagersicht}
-\subsection{Zeitmanagement}
+Explizit in Scrum bedeutet das, dass während des Sprint Plannings der Kunde zusammen mit dem Entwicklerteam seine Anforderungen als Akzeptanztests niederschreibt.
+In diesem Rahmen können beide Stakeholder eventuelle Probleme, Unklarheiten oder offene Diskussionen bezüglich einer User Story aufklären und abschließen, so dass nach dem Sprint Planning beide Parteien glücklich gestimmt und fokussiert den Sprint angehen können.
+In den einzelnen User Stories teilen die Entwickler dann einen Akzeptanztest in mehrere Unit-Tests auf, dessen Erstellung dem üblichen TDD folgen.
+An diesem Punkt sind den Entwicklern hoffentlich alle Anforderungen klar, so dass sie beim Schreiben des Unit-Tests auch nicht vor der Problematik stehen, dass ihnen das Formulieren eines Tests schwer fällt.
+Das im voraus gewonnene Wissen amplifiziert also die Chance auf ein initial gutes Design, da der Entwickler potentiell bestmöglichst informiert ist, um die Problemstellung vollständig betrachten und lösen zu können.
 
-Was bedeutet TDD fuer die Estimates?
-Lohnt sich Tests schreiben ueberhaupt?
-Bedeuten Tests nicht, dass mehr Aufwand gebracht werden muss, "nutzlosen" Code zu produzieren?
-Das ist doch eine Reduktion des Throughputs.
-Iterationen sind doch eh schon kurz genug.
-Wann soll ueberhaupt getestet werden?
-Meist Sprints so kurz definiert, dass Entwickler mit Stories fertig werden.
-Wenn die Story fertig ist, sollte also Sprint beendet werden.
+Dadurch wird auf mehreren Ebenen verifiziert, dass das korrekte Produkt erstellt wird.
+Einerseits auf Entwickler-orienterter \enquote{Unit-Test}-Ebene, andererseits auf Kunden-orienterter Akzeptanztests-Ebene.
+Beide Ebenen liefern \enquote{instant} Feedback für den jeweiligen Stakeholder, dass das richtige Produkt entwickelt werden kann.
+Somit wird nicht nur das Vertrauen des Kundens in das Team sowie in das Produkt gestärkt; auch das Team genießt ein stärkeres Vertrauen in ihre eigene Arbeit, da sie sich sicher sein können, dass das, was gerade implementiert wird, dem Wunsch des Kundens entspricht.
 
-Stories sollten erst fertig sein, wenn sie vernuenftig getestet sind.
-Stories sollten IN dem Sprint getestet werden, in der sie ins Sprint Backlog getan wurden.
-Testing in agilen Entwicklungsprozessen sollte nicht designed werden nach dem Konzept, dass Testing auf den letzten Sprint arbeitet.
-Immer momentanen Sprint testen, daher auch dafuer Zeit nehmen!
+Durch Developer sowie Acceptance TDD kann können beispielsweise folgende Problemzonen abgedeckt werden:
+\begin{itemize}
+  \item Funktionale Korrektheit
+  \item Korrekte Modellierung des von Kunden gewünschten Use Cases
+  \item Mögliche Abdeckung von spezifischen, nicht-funktionalen Anforderungen:
+  \begin{itemize}
+    \item Benutzbarkeit: Automatisierte GUI Akzeptanztests
+    \item Zuverlässigkeit: Stresstests als Akzeptanztest
+    \item Leistung und Effizienz: Akzeptanztest mit klar definierte Metriken
+  \end{itemize}
+\end{itemize}
+
+Diese mögliche Entwicklungsart mitigiert daher eine Bandbreite von verschiedenen in der Literatur beschriebenen Problemen oder Mythen von Scrum, da nicht nur Entwickler aber auch Kunde gezwungen sind, sich mit dem Produkt einschlägig auseinander zu setzen und dabei untereinander Rücksprache halten können.
+Somit werden nicht nur \enquote{schlecht formulierte} User Stories mitigiert, aber auch der initiale Aufwand eines Entwicklers ist immens gesunken, da er im Vorfeld durch den Kunden genug Feedback genießen konnte.
+
+User Stories sind demnach erst fertig, wenn die dazugehörigen Akzeptanztests ebenfalls erfolgreich ausgeführt werden können.
+Dadurch ergibt sich für das Scrum-Team eine einfachere \enquote{Definition of Done} sowie grenzt sich somit ein, wann das Testing einer User Story abzuschließen ist: in dem Sprint, in dem die User Story zu absolvieren ist, sprich, in welchem sie zum Sprint Backlog hinzugefügt wurde.
 
 \chapter{Fazit}
 
 Alles in einem ist es ersichtlich, dass TDD innerhalb von Scrum erhebliche Vorteile bietet, die viele Lücken füllt, die initial bestehen.
 Man darf jedoch nicht vergessen, dass die Nutzung von TDD die Anforderungen an den einzelnen Entwickler immens steigert.
 Nicht nur die Verantwortung jedes einzelnen steigt, aber auch die benötigte Disziplin.
+Erfahrene Entwickler sind daher besonders wertvoll für so einen Ansatz.
+
 Sollte TDD in Form von nicht-geschriebenen Tests vernachlässigt werden, so wirkt sich das auf die Wirksamkeit des gesamten Teams aus und hat eventuell schwerere Folgen, die ohne explizites Gegenwirken dazuführen, dass eine Menge an \enquote{Technical Debt} aufgebaut wird.
 Diesem gegenüber stehenden ist die implizit als Wert vermittelte Eigenschaft \enquote{Whole-Team-Approach} des Scrum-Entwicklungsprozesses.
 Das Team stellt sich dem Projekt gemeinsam, darf aber nicht vergessen, dass es autonom handelt und daher jeder hier auftretende Mangel folglich ihnen selbst, dem Produkt und somit ihrer Firma schadet.
+
 Trotz dieses Problems überwiegen die Vorteile von TDD und, sollte es richtig implementiert und angewendet werden, zeigt auf, dass durch solch eine \enquote{simple} Methode Scrum zu einem Kinderspiel werden kann.
 
 Leider konnte in Rahmen dieser kurzen Ausarbeitung kein Fokus auf andere, interessante Aspekte von agilen Testmethoden Rücksicht genommen werden.
 Komplett ignoriert wurde beispielsweise die Analyse von TDD im Bezug auf die einzelnen Scrum-Rollen sowie auf die Komposition des Scrum-Teams.
+Ebenso wurde ignoriert, welche Anforderungen an eine korrekte Unit-Testsuite gegeben sind, damit ein Entwickler einem angenehmen Arbeitsablauf hat.
+Ferner wurde auch ignoriert, in wie weit der hier aufgelistete oder ähnlicher Ansatz möglicherweise Scrum im Bezug eines Sprints beeinträchtigt, da der zeitliche Aufwand eines Entwicklers dadurch steigt, und wohlmöglich somit, weniger User Stories innerhalb eines Sprints absolviert werden können.
 
 \nocite{*}
 \printbibliography
